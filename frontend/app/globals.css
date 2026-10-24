@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-white font-body text-[15px] leading-relaxed text-sc-slate antialiased sm:text-base; }
+  h1, h2, h3, h4 { @apply font-display; }
+  :focus-visible { outline: 3px solid #0073B7; outline-offset: 2px; border-radius: 4px; }
+  form label { @apply text-sm font-medium text-sc-slate; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  }
+}
