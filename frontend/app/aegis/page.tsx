@@ -5,7 +5,9 @@ import { ModuleGrid } from '@/components/ui/ModuleCard'
 import { CtaBand } from '@/components/ui/CtaBand'
 import { PricingTable } from '@/components/aegis/PricingTable'
 import { InspectionViewer } from '@/components/aegis/InspectionViewer'
+import { VideoPlayer } from '@/components/ui/VideoPlayer'
 import { AEGIS_MODULES } from '@/lib/content'
+import { AEGIS_VIDEO } from '@/lib/config'
 
 export const metadata: Metadata = {
   title: 'Aegis property stewardship',
@@ -28,6 +30,12 @@ export default function AegisPage() {
       <Section id="modules">
         <Heading title="Four modules, one steward" sub="Use the ones you need. Each is delivered by the same named steward." />
         <ModuleGrid modules={AEGIS_MODULES} />
+      </Section>
+      <Section id="video" tone="mist">
+        <div className="mx-auto max-w-3xl">
+          <Heading title="See Aegis in action" sub="How we look after a property while you are abroad." />
+          <VideoPlayer src={AEGIS_VIDEO} title="See Aegis in action" />
+        </div>
       </Section>
       <PricingTable />
       <InspectionViewer />

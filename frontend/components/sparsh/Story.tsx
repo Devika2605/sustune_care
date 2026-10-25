@@ -8,7 +8,7 @@ export function Story() {
     <Section id="story">
       <Heading title="A trusted presence back home" sub="Technology lets you talk to your parents. A person who turns up lets you stop worrying between calls." />
       <div className="grid items-start gap-10 lg:grid-cols-2">
-        <VideoPlayer src={STORY_VIDEO} title="A trusted presence back home" caption="Add your Sparsh film by setting NEXT_PUBLIC_STORY_VIDEO_URL." />
+        <VideoPlayer src={STORY_VIDEO} title="A trusted presence back home" />
         <div>
           <h3 className="font-display text-xl font-semibold text-sc-marine">A typical visiting day</h3>
           <ol className="mt-5 space-y-5 border-l-2 border-sc-gold pl-6">
