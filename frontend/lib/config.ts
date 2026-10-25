@@ -18,8 +18,9 @@ export type Hub = (typeof HUBS)[number]
 
 export const RESIDENCE = ['USA', 'UK', 'UAE', 'Australia', 'Canada', 'Other'] as const
 
-export const INTRO_VIDEO = process.env.NEXT_PUBLIC_INTRO_VIDEO_URL || ''
-export const STORY_VIDEO = process.env.NEXT_PUBLIC_STORY_VIDEO_URL || ''
+export const INTRO_VIDEO = process.env.NEXT_PUBLIC_INTRO_VIDEO_URL || '/intro.mp4'
+export const STORY_VIDEO = process.env.NEXT_PUBLIC_STORY_VIDEO_URL || '/sparsh.mp4'
+export const AEGIS_VIDEO = process.env.NEXT_PUBLIC_AEGIS_VIDEO_URL || '/aegis.mp4'
 export const SHOW_SAMPLE_PROOF = process.env.NEXT_PUBLIC_SHOW_SAMPLE_PROOF !== 'false'
 
 export function waLink(text: string) {
