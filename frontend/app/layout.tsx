@@ -1,8 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import '@fontsource-variable/inter'
-import '@fontsource-variable/plus-jakarta-sans'
+import '@fontsource-variable/playfair-display'
 import './globals.css'
-import { TopBar } from '@/components/layout/TopBar'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { QuickDesk } from '@/components/layout/QuickDesk'
@@ -16,14 +15,13 @@ export const metadata: Metadata = {
   openGraph: { type: 'website', siteName: 'Sustune Care', locale: 'en_IN', title: 'Sustune Care | Protected Care. Sustained Dignity.' },
   twitter: { card: 'summary_large_image' },
 }
-export const viewport: Viewport = { themeColor: '#0D3B66', width: 'device-width', initialScale: 1 }
+export const viewport: Viewport = { themeColor: '#0B1B3D', width: 'device-width', initialScale: 1 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:font-semibold">Skip to main content</a>
-        <TopBar />
         <Header />
         <main id="main">{children}</main>
         <Footer />

@@ -59,29 +59,28 @@ npm run dev                        # http://localhost:3000
 
 | Route | Purpose |
 |---|---|
-| `/` | Dual-hero landing page, estimator, trust section |
-| `/aegis` | Property services, pricing comparison, sample inspection report |
-| `/sparsh` | Parental care pillars, care-plan builder, story video |
-| `/portal-preview` | Demo of the client dashboard (sample data) |
+| `/` | Hero, stats bar, NRI reality, two pillars, peace-of-mind calculator, testimonials |
+| `/aegis` | Plans and pricing table, sample inspection report, why Aegis |
+| `/sparsh` | Care-plan builder, four pillars, story video |
+| `/portal-preview` | Interactive client dashboard demo with sidebar views (sample data) |
 | `/contact` | Consultation form and WhatsApp hand-off |
 | `/about`, `/privacy`, `/terms` | Company and legal pages (privacy and terms are drafts) |
 | `/login`, `/portal`, `/admin` | Real client portal and lead tracker (need the API) |
 
 ## Brand
 
-All visual rules follow the Sustune Care Brand Guidelines (SC-BGM-2026).
+The look follows the approved visual mockups (dark navy and champagne gold, serif headings).
 
-| Token | Hex |
-|---|---|
-| Deep Marine Blue | `#0D3B66` |
-| Cerulean Flow | `#0073B7` |
-| Imperial Gold | `#C99738` |
-| Burnished Bronze (gold text on white) | `#8B601C` |
-| Emerald Vitality | `#0A8754` |
-| Pure Slate Gray | `#1E293B` |
-| Cool Mist Tint | `#F1F5F9` |
+| Token | Hex | Use |
+|---|---|---|
+| Deep Royal Navy | `#0B1B3D` | Hero, headings, dark cards |
+| Champagne Gold | `#D4AF37` | Buttons, borders, text on navy |
+| Bronze | `#8A6A12` | Gold-coloured text on light backgrounds (passes contrast) |
+| Wellness Emerald | `#0F5132` | Sparsh |
+| Off-white canvas | `#FBFBFB` | Page background |
+| Slate | `#1E293B` | Body text |
 
-Fonts: Plus Jakarta Sans (headings) and Inter (body). Never place white text on Imperial Gold.
+Fonts: Playfair Display (headings) and Inter (body). Navy text goes on gold buttons, never white. The older brand guidelines (SC-BGM-2026) specify a different palette and Plus Jakarta Sans; the mockups take priority, so ask your sir to confirm and update the guidelines to match.
 
 ## Contact details used on the site
 
@@ -106,7 +105,8 @@ Details are in the two sub-READMEs.
 - [ ] Replace `frontend/public/brand/emblem.png` with the true vector or high-resolution logo
 - [ ] Upload videos and set the two video URLs
 - [ ] Get all prices approved, then update `frontend/lib/pricing.ts` and `backend/app/pricing.py` together
-- [ ] Replace the sample testimonials and metrics with real ones, or set `NEXT_PUBLIC_SHOW_SAMPLE_PROOF=false`
+- [ ] Replace the sample stats bar figures and testimonials with real ones, or set `NEXT_PUBLIC_SHOW_SAMPLE_PROOF=false`
+- [ ] Confirm the three office addresses in `frontend/lib/config.ts` (`OFFICES`) are real
 - [ ] Have a lawyer replace the privacy policy and terms; add the registered company name
 - [ ] Add leadership names and bios to `/about`
 - [ ] Confirm what "Global sourcing" covers in Aegis

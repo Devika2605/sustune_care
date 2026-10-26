@@ -1,11 +1,16 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
+import { ClipboardList, Globe2, Home, Wrench } from 'lucide-react'
 import { Section, Heading } from '@/components/ui/Section'
-import { Button } from '@/components/ui/Button'
 import { ModuleGrid } from '@/components/ui/ModuleCard'
 import { CtaBand } from '@/components/ui/CtaBand'
-import { PricingTable } from '@/components/aegis/PricingTable'
-import { InspectionViewer } from '@/components/aegis/InspectionViewer'
+import { VideoPlayer } from '@/components/ui/VideoPlayer'
+import { IconStrip, PageHero } from '@/components/ui/PageHero'
+import { PlansTable } from '@/components/aegis/PlansTable'
+import { ReportCard } from '@/components/aegis/ReportCard'
+import { WhyAegis } from '@/components/aegis/WhyAegis'
 import { AEGIS_MODULES } from '@/lib/content'
+import { AEGIS_VIDEO } from '@/lib/config'
 
 export const metadata: Metadata = {
   title: 'Aegis property stewardship',
@@ -15,22 +20,24 @@ export const metadata: Metadata = {
 export default function AegisPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-sc-marine to-sc-deep text-white">
-        <div className="mx-auto max-w-page px-5 py-16 sm:px-8 sm:py-24">
-          <h1 className="max-w-3xl font-display text-4xl font-extrabold leading-[1.12] tracking-[-0.025em] sm:text-[3.25rem]">Your property in India, looked after like you live next door</h1>
-          <p className="mt-6 max-w-2xl text-lg text-slate-200">Aegis finds and verifies your tenant, collects rent into escrow, keeps the house in good repair, and sends you a photographed report every quarter.</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button href="#pricing" variant="gold">Compare plans</Button>
-            <Button href="#report" variant="light">See a sample report</Button>
-          </div>
+      <PageHero tag="Aegis" title="Institutional Property Stewardship" sub="Professional management for your most valuable assets, so you can stay focused on what matters, no matter where you are." art={<Image src="/brand/aegis-hero.webp" alt="" width={1530} height={917} priority sizes="(max-width: 1280px) 44vw, 560px" className="h-auto w-full" />}>
+        <IconStrip items={[[Home, 'Tenant Scouting & Verification'], [ClipboardList, 'Active Rental Management'], [Wrench, 'Maintenance & Turnkey Interiors'], [Globe2, 'Global Sourcing & Reporting']]} />
+      </PageHero>
+      <Section className="pt-6">
+        <div className="grid items-start gap-6 lg:grid-cols-[1.4fr_1fr_0.8fr]">
+          <PlansTable /><ReportCard /><WhyAegis />
         </div>
-      </section>
-      <Section id="modules">
+      </Section>
+      <Section id="modules" tone="mist">
         <Heading title="Four modules, one steward" sub="Use the ones you need. Each is delivered by the same named steward." />
         <ModuleGrid modules={AEGIS_MODULES} />
       </Section>
-      <PricingTable />
-      <InspectionViewer />
+      <Section id="video">
+        <div className="mx-auto max-w-3xl">
+          <Heading title="See Aegis in action" sub="How we look after a property while you are abroad." />
+          <VideoPlayer src={AEGIS_VIDEO} title="See Aegis in action" ratio="tall" />
+        </div>
+      </Section>
       <CtaBand title="Have a property in India?" sub="Book a free call and we will walk through your property, your rent and what Aegis would cover." interest="aegis" waText="Hi Sustune Care, I have a property in India and would like to know about Aegis." />
     </>
   )

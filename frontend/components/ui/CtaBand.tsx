@@ -7,10 +7,10 @@ export function CtaBand({ title, sub, interest, waText }: { title: string; sub: 
   return (
     <Section tone="navy">
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="font-display text-3xl font-bold tracking-tight">{title}</h2>
+        <h2 className="font-display text-3xl font-bold sm:text-4xl">{title}</h2>
         <p className="mt-4 text-lg text-slate-200">{sub}</p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <Button href={`/contact?interest=${interest}`} variant="gold">Book a free consultation</Button>
+          <Button href={`/contact?interest=${interest}`} variant="gold" arrow>Book a free consultation</Button>
           <Button href={waLink(waText)} external variant="light"><MessageCircle aria-hidden className="h-4 w-4" />Chat on WhatsApp</Button>
         </div>
       </div>

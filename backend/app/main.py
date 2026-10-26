@@ -30,7 +30,7 @@ def health():
 # ---------- public ----------
 @app.post("/api/quote")
 def quote(q: schemas.QuoteIn):
-    return build_quote(q.city, q.aegis, q.sparsh, q.monthly_rent_inr, q.sparsh_tier, q.currency)
+    return build_quote(q.city, q.aegis, q.sparsh, q.monthly_rent_inr, q.sparsh_tier, q.currency, q.both_parents)
 
 @app.post("/api/leads", response_model=schemas.LeadOut, status_code=201)
 def create_lead(body: schemas.LeadIn, request: Request, bg: BackgroundTasks, db: Session = Depends(get_db)):

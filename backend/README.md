@@ -58,7 +58,7 @@ backend/
 | Method | Path | Auth | Purpose |
 |---|---|---|---|
 | GET | `/api/health` | none | Health check |
-| POST | `/api/quote` | none | Price estimate |
+| POST | `/api/quote` | none | Price estimate in rupees (also returns USD and the chosen currency) |
 | POST | `/api/leads` | none | Save a consultation request (rate limited: 5 per 10 min per IP) |
 | POST | `/api/auth/login` | none | Sign in, sets httpOnly cookie (rate limited: 8 per min per IP) |
 | POST | `/api/auth/logout` | cookie | Clear cookie |
@@ -79,7 +79,7 @@ Tools such as curl or Postman may send `Authorization: Bearer <token>` instead o
   "name": "Asha Rao", "email": "asha@example.com", "phone": "+1 206 555 0100",
   "country": "USA", "interest": "both", "city": "Hyderabad",
   "preferred_slot": "Saturday 9 am PST", "message": "",
-  "quote_monthly_usd": 144, "consent": true, "website": ""
+  "quote_monthly_usd": 117, "consent": true, "website": ""
 }
 ```
 
@@ -105,7 +105,9 @@ Tools such as curl or Postman may send `Authorization: Bearer <token>` instead o
 
 ## Prices
 
-`app/pricing.py` holds placeholder rates until the business approves them. Keep it identical to `frontend/lib/pricing.ts`, because visitors see the frontend numbers and the server records the quote.
+`app/pricing.py` holds placeholder rates (in rupees) until the business approves them. Keep it identical to `frontend/lib/pricing.ts`, because visitors see the frontend numbers and the server records the quote.
+
+The lead table stores the estimate in the `quote_monthly_usd` column, so the website converts the rupee estimate to dollars before sending it. The admin page shows it as a dollar figure.
 
 ## Deploying
 

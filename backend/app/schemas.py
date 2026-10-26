@@ -43,7 +43,8 @@ class QuoteIn(BaseModel):
     sparsh: bool = True
     monthly_rent_inr: int = Field(default=65000, ge=0, le=5_000_000)
     sparsh_tier: Literal["essential", "comprehensive", "full"] = "comprehensive"
-    currency: str = "USD"
+    both_parents: bool = False
+    currency: str = "INR"
 
 class VitalIn(BaseModel):
     bp_sys: int = Field(ge=60, le=260)

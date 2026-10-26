@@ -74,16 +74,18 @@ export const COMMITMENTS = [
 ]
 
 // Illustrative content only. Shown behind a visible "sample" badge and hidden by NEXT_PUBLIC_SHOW_SAMPLE_PROOF=false.
-export const SAMPLE_METRICS = [
-  ['Hyderabad', 'Hub, headquarters'],
-  ['Bengaluru', 'Hub'],
-  ['Delhi NCR', 'Hub'],
-  ['6 time zones', 'Updates aligned to the client'],
+// Stats bar. The sample figures come from the design mockup and are NOT real. Replace them with verified numbers.
+export const STATS_SAMPLE = [
+  ['500+', 'Properties managed'], ['300+', 'Parents under care'], ['4.9/5', 'NRI satisfaction'], ['3 cities', 'Hyderabad · Bengaluru · Delhi NCR'],
+] as const
+export const STATS_REAL = [
+  ['2 services', 'Aegis and Sparsh'], ['24/7', 'Emergency SOS coordination'], ['1 portal', 'Updates in your time zone'], ['3 cities', 'Hyderabad · Bengaluru · Delhi NCR'],
 ] as const
 export const SAMPLE_TESTIMONIALS = [
-  { quote: 'I used to dread phone calls home. Now I open the portal and see what happened that day.', who: 'Sample client', where: 'USA · Hub: Hyderabad', tag: 'Bundle' },
-  { quote: 'The inspection report showed me a leak before it became a repair bill.', who: 'Sample client', where: 'UK · Hub: Bengaluru', tag: 'Aegis' },
-  { quote: 'Our companion remembers how Amma likes her tea. That matters more than any dashboard.', who: 'Sample client', where: 'UAE · Hub: Delhi NCR', tag: 'Sparsh' },
+  { quote: 'I can finally focus on my work abroad. I open the portal and see exactly what happened with the flat.', who: 'Sample client', where: 'USA' },
+  { quote: 'Their care and attention for my parents is exceptional. I do not have to worry the way I used to.', who: 'Sample client', where: 'UAE' },
+  { quote: 'Professional, reliable and truly compassionate. I would recommend it to other NRI families.', who: 'Sample client', where: 'Germany' },
+  { quote: 'The inspection report showed me a leak before it became a repair bill.', who: 'Sample client', where: 'UK' },
 ]
 
 // ---- Aegis pricing matrix ----
@@ -122,33 +124,52 @@ export const TYPICAL_DAY = [
 ]
 
 // ---- Portal preview (static sample data) ----
-export const PREVIEW = {
-  client: 'Demo client, Seattle, USA',
-  property: { name: 'Sample apartment, Gachibowli', tenant: 'Sample tenant (verified)', lease: 'Aug 2025 to Jul 2027', deposit: 255000, rent: 85000, score: 96 },
-  ledger: [
-    ['October 2026', 85000, 'Held in escrow', 'Payout due 5 Nov'],
-    ['September 2026', 85000, 'Paid out', '5 Oct'],
-    ['August 2026', 85000, 'Paid out', '5 Sep'],
-    ['July 2026', 85000, 'Paid out', '5 Aug'],
-  ] as [string, number, string, string][],
-  tickets: [
-    { id: 'TK-882', title: 'Replace water purifier membrane', status: 'Completed', cost: 2450 },
-    { id: 'TK-904', title: 'AC service before winter', status: 'Scheduled', cost: 1800 },
-    { id: 'TK-911', title: 'Fix loose wardrobe hinge', status: 'Awaiting approval', cost: 600 },
-  ],
-  parent: { name: 'Sample parent, age 71', companion: 'Sample companion' },
-  vitals: [
-    ['14 Oct', '128/82', 74, 98, 112],
-    ['30 Sep', '134/86', 78, 97, 126],
-    ['16 Sep', '126/80', 72, 98, 108],
-  ] as [string, string, number, number, number][],
+export type PreviewProperty = { id: number; name: string; city: string; rent: number; status: 'Occupied' | 'Vacant'; tenant: string; lease: string }
+export const PREVIEW_PROPERTIES: PreviewProperty[] = [
+  { id: 1, name: '2 BHK Apartment', city: 'Hyderabad', rent: 35000, status: 'Occupied', tenant: 'Sample tenant A (verified)', lease: 'Aug 2025 to Jul 2027' },
+  { id: 2, name: '3 BHK Villa', city: 'Bengaluru', rent: 50000, status: 'Occupied', tenant: 'Sample tenant B (verified)', lease: 'Jan 2026 to Dec 2027' },
+  { id: 3, name: '4 BHK Apartment', city: 'Delhi NCR', rent: 45000, status: 'Vacant', tenant: 'Vacant, 3 viewings booked', lease: 'n/a' },
+]
+export type Ticket = { id: string; title: string; property: string; status: 'Completed' | 'Scheduled' | 'Awaiting approval' | 'Open'; cost: number }
+export const PREVIEW_TICKETS: Ticket[] = [
+  { id: 'TK-882', title: 'Replace water purifier membrane', property: '2 BHK Apartment, Hyderabad', status: 'Completed', cost: 2450 },
+  { id: 'TK-904', title: 'AC service before winter', property: '3 BHK Villa, Bengaluru', status: 'Scheduled', cost: 1800 },
+  { id: 'TK-911', title: 'Fix loose wardrobe hinge', property: '4 BHK Apartment, Delhi NCR', status: 'Awaiting approval', cost: 600 },
+]
+export const PREVIEW_ACTIVITY = [
+  ['Rent received', '2 BHK, Hyderabad', '2 days ago', 'rent'],
+  ['Maintenance request resolved', '3 BHK, Bengaluru', '4 days ago', 'wrench'],
+  ['Inspection completed', '4 BHK, Delhi NCR', '1 week ago', 'check'],
+  ['Tenant verified', 'New tenant onboarding', '1 week ago', 'user'],
+] as const
+export const PREVIEW_DOCS = [
+  ['Lease agreement, 2 BHK Hyderabad', 'PDF', 'Signed Aug 2025'],
+  ['Police verification, Tenant A', 'PDF', 'Aug 2025'],
+  ['Q3 inspection report, all properties', 'PDF', 'Oct 2026'],
+  ['Property tax receipt, 3 BHK Bengaluru', 'PDF', 'Apr 2026'],
+]
+export const PREVIEW_REPORTS = [
+  ['Rent and payouts, September 2026', 'Monthly'], ['Maintenance summary, Q3 2026', 'Quarterly'], ['Occupancy and vacancy, 2026 to date', 'Annual'],
+]
+export const PREVIEW_PARENT = {
+  name: 'Sample parent, age 71', city: 'Hyderabad', companion: 'Sample companion',
+  vitals: [['14 Oct', '128/82', 74, 98, 112], ['30 Sep', '134/86', 78, 97, 126], ['16 Sep', '126/80', 72, 98, 108]] as [string, string, number, number, number][],
   notes: [
     ['Cardiology review', 'Blood pressure stable. Continue current medicines. Repeat lipid panel in three months.'],
     ['General physician', 'Mild seasonal cough. Rest, fluids, review in a week if it continues.'],
   ],
-  meds: [
-    ['Amlodipine 5 mg', 'Delivered 2 Oct', 'Next: 30 Oct'],
-    ['Metformin 500 mg', 'Delivered 2 Oct', 'Next: 30 Oct'],
-    ['Vitamin D3', 'Scheduled', 'Arrives 28 Oct'],
+  meds: [['Amlodipine 5 mg', 'Delivered 2 Oct', 'Next: 30 Oct'], ['Metformin 500 mg', 'Delivered 2 Oct', 'Next: 30 Oct'], ['Vitamin D3', 'Scheduled', 'Arrives 28 Oct']],
+  appts: [
+    { id: 1, doctor: 'Sample cardiologist', place: 'Sample hospital', when: '30 Oct, 11:00 am', status: 'Scheduled' },
+    { id: 2, doctor: 'Sample physician', place: 'Sample hospital', when: '4 Oct, 10:30 am', status: 'Completed' },
   ],
+  activity: [
+    ['Vitals recorded', 'BP 128/82, SpO₂ 98%', 'Today', 'heart'], ['Medicine delivered', 'Amlodipine and Metformin', '2 days ago', 'pill'],
+    ['Doctor visit completed', 'General physician', '3 weeks ago', 'check'], ['Companion visit', 'Walk and conversation', '1 week ago', 'user'],
+  ] as readonly (readonly [string, string, string, string])[],
 }
+
+// Aegis sample report (overview, photos, maintenance, documents tabs)
+export const REPORT_OVERVIEW = [
+  ['Structural condition', 'Good'], ['Plumbing and electrical', 'Good'], ['Cleanliness', 'Good'], ['Tenant compliance', 'Good'],
+]
