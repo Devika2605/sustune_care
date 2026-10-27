@@ -94,15 +94,6 @@ Tools such as curl or Postman may send `Authorization: Bearer <token>` instead o
 - Production refuses weak `SECRET_KEY` or admin password
 - API docs disabled in production
 
-## Still to do before real client data
-
-- Use Postgres, with backups
-- Add audit logging for who views or changes health information
-- Move the rate limiter to Redis or an API gateway if you run more than one instance
-- Add database migrations (Alembic) instead of `create_all`
-- Add automated tests and a CI check
-- Review consent and retention rules with a lawyer (India's DPDP Act, 2023)
-
 ## Prices
 
 `app/pricing.py` holds placeholder rates (in rupees) until the business approves them. Keep it identical to `frontend/lib/pricing.ts`, because visitors see the frontend numbers and the server records the quote.
