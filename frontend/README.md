@@ -106,12 +106,6 @@ Login sets an httpOnly cookie from the API. No token is stored in JavaScript. `/
 
 Do not commit video files. Upload them to S3 with CloudFront, YouTube or Vimeo, then paste the URL into the environment variables. `VideoPlayer` accepts an `.mp4` link, a local file such as `/aegis.mp4` placed in `frontend/public/`, or a normal YouTube/Vimeo link (watch, youtu.be and embed forms are converted automatically).
 
-## Deploying to AWS Amplify
-
-1. Connect the repository and set the app root to `frontend`.
-2. Build command `npm run build`, output handled automatically for Next.js.
-3. Set the environment variables above. `API_URL` must be the public HTTPS URL of the backend.
-4. Add the custom domain and force HTTPS.
 
 ## Troubleshooting
 
