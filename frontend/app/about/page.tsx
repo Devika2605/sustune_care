@@ -24,7 +24,7 @@ export default function About() {
             <p className="mt-5 max-w-2xl text-lg text-slate-600">Sustune Care exists for families whose lives are in one country and whose roots, homes and parents are in another. We combine careful oversight with people who treat your family’s home and your parents as they would their own.</p>
             <p className="mt-4 max-w-2xl text-slate-600">We are based in {SITE.location}, and our executive team brings more than 20 years of combined professional experience.</p>
           </div>
-          <Image src="/brand/emblem.png" alt="Sustune Care emblem: a shield holding a house, an S ribbon and supporting hands" width={220} height={220} className="mx-auto h-auto w-48 lg:w-56" />
+          <Image src="/brand/emblem-mark.png" alt="Sustune Care emblem: a shield holding a house, an S ribbon and supporting hands" width={368} height={512} className="mx-auto h-auto w-40 animate-floaty drop-shadow-[0_18px_28px_rgba(11,27,61,.25)] lg:w-52" />
         </div>
       </Section>
       <Section tone="mist">

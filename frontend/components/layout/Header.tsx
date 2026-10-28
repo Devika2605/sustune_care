@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
@@ -10,6 +10,12 @@ import { cn } from '@/lib/cn'
 
 export function Header() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  useEffect(() => {
+    const on = () => setScrolled(window.scrollY > 24)
+    on(); window.addEventListener('scroll', on, { passive: true })
+    return () => window.removeEventListener('scroll', on)
+  }, [])
   const path = usePathname()
   const home = path === '/'
   const active = (href: string) => (href === '/' ? path === '/' : path.startsWith(href))
@@ -17,8 +23,8 @@ export function Header() {
     home ? (active(href) ? 'text-sc-gold' : 'text-white hover:text-sc-gold') : (active(href) ? 'text-sc-marine' : 'text-slate-700 hover:text-sc-marine'),
     active(href) && "after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:bg-sc-gold")
   return (
-    <header className={cn('z-50', home ? 'absolute inset-x-0 top-0' : 'sticky top-0 border-b border-sc-line bg-white/95 backdrop-blur')}>
-      <div className="mx-auto flex h-[84px] max-w-page items-center justify-between px-5 sm:px-8">
+    <header className={cn('z-50 transition-all duration-300', home ? cn('fixed inset-x-0 top-0', scrolled && 'border-b border-sc-gold/25 bg-sc-deep/85 shadow-lift backdrop-blur-xl') : 'sticky top-0 border-b border-sc-line bg-white/95 backdrop-blur')}>
+      <div className={cn('mx-auto flex max-w-page items-center justify-between px-5 transition-all duration-300 sm:px-8', scrolled ? 'h-[76px]' : 'h-[92px]')}>
         <Logo light={home} />
         <nav aria-label="Main" className="hidden items-center gap-7 lg:flex">
           {NAV.map((n) => <Link key={n.href} href={n.href} className={link(n.href)} aria-current={active(n.href) ? 'page' : undefined}>{n.label}</Link>)}

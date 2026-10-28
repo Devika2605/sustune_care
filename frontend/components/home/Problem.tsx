@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { Clock, MapPinOff, EyeOff, Heart } from 'lucide-react'
 import { Section, Eyebrow } from '@/components/ui/Section'
 import { Button } from '@/components/ui/Button'
+import { Reveal } from '@/components/ui/Reveal'
 
 const CARDS = [
   [Clock, 'Time zone challenges', 'Hard to oversee property or parents from abroad'],
@@ -31,12 +32,12 @@ export function Problem() {
           <Button href="/about" arrow className="mt-7">Learn More</Button>
         </div>
         <ul className="grid gap-4 self-start sm:grid-cols-2 xl:grid-cols-4">
-          {CARDS.map(([Icon, t, d]) => (
-            <li key={t} className="rounded-xl border border-white/70 bg-white/80 p-5 shadow-card backdrop-blur-md">
+          {CARDS.map(([Icon, t, d], i) => (
+            <Reveal as="li" delay={i * 0.09} key={t} className="rounded-xl border border-white/70 bg-white/85 p-5 shadow-card backdrop-blur-md transition-transform duration-300 hover:-translate-y-1">
               <Icon aria-hidden className="h-7 w-7 text-[#C9A227]" strokeWidth={1.5} />
               <h3 className="mt-4 font-display text-lg font-bold leading-snug text-sc-marine">{t}</h3>
               <p className="mt-1.5 text-sm text-slate-600">{d}</p>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>

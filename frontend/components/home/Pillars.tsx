@@ -37,7 +37,7 @@ export function Pillars() {
         {(Object.keys(DATA) as P[]).map((k) => {
           const c = DATA[k]
           return (
-            <article key={k} onClick={() => setFocus(k)} className={cn('relative cursor-pointer overflow-hidden rounded-3xl bg-gradient-to-br p-7 text-white shadow-lift transition-all sm:p-9', c.bg, focus === k ? 'ring-2 ring-sc-gold ring-offset-4 ring-offset-sc-canvas' : 'opacity-95')}>
+            <article key={k} onClick={() => setFocus(k)} className={cn('relative cursor-pointer overflow-hidden rounded-3xl bg-gradient-to-br p-7 text-white shadow-lift transition-all duration-300 hover:-translate-y-1.5 sm:p-9', c.bg, focus === k ? 'ring-2 ring-sc-gold ring-offset-4 ring-offset-sc-canvas' : 'opacity-95')}>
               {k === 'aegis'
                 ? <Image src="/brand/aegis-card.webp" alt="" width={1100} height={657} sizes="(max-width: 1024px) 80vw, 40vw" className="pointer-events-none absolute -bottom-3 -right-4 h-auto w-[78%] opacity-90" />
                 : <Image src="/brand/sparsh-card.webp" alt="" width={760} height={796} sizes="(max-width: 1024px) 60vw, 30vw" className="pointer-events-none absolute -bottom-6 -right-4 h-auto w-[52%] opacity-90" />}

@@ -30,6 +30,19 @@ const config: Config = {
         body: ['"Inter Variable"', 'system-ui', 'sans-serif'],
       },
       maxWidth: { page: '1280px' },
+      keyframes: {
+        shimmer: { '0%': { backgroundPosition: '200% center' }, '100%': { backgroundPosition: '-200% center' } },
+        floaty: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+        twinkle: { '0%,100%': { opacity: '.25', transform: 'scale(.7) rotate(0deg)' }, '50%': { opacity: '1', transform: 'scale(1.1) rotate(45deg)' } },
+        drawline: { '0%': { transform: 'scaleX(0)' }, '100%': { transform: 'scaleX(1)' } },
+        pulsering: { '0%': { boxShadow: '0 0 0 0 rgba(212,175,55,.55)' }, '100%': { boxShadow: '0 0 0 12px rgba(212,175,55,0)' } },
+      },
+      animation: {
+        shimmer: 'shimmer 7s linear infinite',
+        floaty: 'floaty 6s ease-in-out infinite',
+        twinkle: 'twinkle 3.2s ease-in-out infinite',
+        pulsering: 'pulsering 2s ease-out infinite',
+      },
       boxShadow: {
         card: '0 1px 3px rgba(11,27,61,.07), 0 6px 18px -8px rgba(11,27,61,.10)',
         lift: '0 14px 34px -10px rgba(11,27,61,.22)',

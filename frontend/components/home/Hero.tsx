@@ -35,7 +35,7 @@ export function Hero() {
             <div className="max-w-[40rem]">
               <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-300 sm:text-xs">For NRIs. For your loved ones.</p>
               <h1 className="font-display text-[2.35rem] font-bold leading-[1.12] sm:text-5xl lg:text-[3.1rem] xl:text-[3.5rem]">
-                Care for your property.<br />Care for your parents.<br /><span className="text-sc-gold">Peace of mind for you.</span>
+                Care for your property.<br />Care for your parents.<br /><span className="text-shimmer animate-shimmer">Peace of mind for you.</span>
               </h1>
               <p className="mt-6 max-w-[34rem] text-base leading-relaxed text-slate-200 sm:text-lg">
                 Sustune Care bridges the anxiety of distance for Global Indians with trusted property stewardship and compassionate elderly care in India.

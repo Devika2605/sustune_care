@@ -1,4 +1,5 @@
 import { cn } from '@/lib/cn'
+import { Star4 } from '@/components/ui/Ornament'
 
 const tones = { white: 'bg-sc-canvas', mist: 'bg-sc-mist', navy: 'bg-sc-marine text-white' } as const
 
@@ -11,7 +12,11 @@ export function Section({ id, tone = 'white', className, children }: { id?: stri
 }
 
 export function Eyebrow({ children, dark }: { children: React.ReactNode; dark?: boolean }) {
-  return <p className={cn('mb-3 text-xs font-semibold uppercase tracking-[0.18em]', dark ? 'text-sc-gold' : 'text-sc-bronze')}>{children}</p>
+  return (
+    <p className={cn('mb-3 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em]', dark ? 'text-sc-gold' : 'text-sc-bronze')}>
+      <Star4 className="h-3 w-3" />{children}<span aria-hidden className="gold-line h-px w-12 opacity-60" />
+    </p>
+  )
 }
 
 export function Heading({ title, sub, eyebrow, tone = 'light', as: Tag = 'h2', className }: { title: string; sub?: string; eyebrow?: string; tone?: 'light' | 'dark'; as?: 'h1' | 'h2'; className?: string }) {
