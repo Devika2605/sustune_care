@@ -18,7 +18,7 @@ export function Header() {
     active(href) && "after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:bg-sc-gold")
   return (
     <header className={cn('z-50', home ? 'absolute inset-x-0 top-0' : 'sticky top-0 border-b border-sc-line bg-white/95 backdrop-blur')}>
-      <div className="mx-auto flex h-[84px] max-w-page items-center justify-between px-5 sm:px-8">
+      <div className="mx-auto flex min-h-[84px] max-w-page items-center justify-between px-5 py-2 sm:px-8">
         <Logo light={home} />
         <nav aria-label="Main" className="hidden items-center gap-7 lg:flex">
           {NAV.map((n) => <Link key={n.href} href={n.href} className={link(n.href)} aria-current={active(n.href) ? 'page' : undefined}>{n.label}</Link>)}

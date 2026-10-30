@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
-import { ArrowRight, ChevronLeft, ChevronRight, Home, Users } from 'lucide-react'
-import { Section, Eyebrow } from '@/components/ui/Section'
+import { ArrowRight, Home, Users } from 'lucide-react'
+import { Section } from '@/components/ui/Section'
 import { Button } from '@/components/ui/Button'
 import { ModuleGrid } from '@/components/ui/ModuleCard'
 import Image from 'next/image'
@@ -16,22 +16,13 @@ const DATA = {
 
 export function Pillars() {
   const [focus, setFocus] = useState<P>('aegis')
-  const other = () => setFocus(focus === 'aegis' ? 'sparsh' : 'aegis')
   const d = DATA[focus]
   return (
     <Section id="pillars" tone="white" className="pb-10 pt-4">
-      <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <Eyebrow>Our two pillars</Eyebrow>
-          <h2 className="font-display text-4xl font-bold text-sc-marine sm:text-[2.6rem]">Complete Care. One Partner.</h2>
-        </div>
-        <div className="flex items-center gap-4">
-          <p className="hidden max-w-xs text-sm text-slate-600 md:block">Two specialized services. A unified commitment: your peace of mind.</p>
-          <div className="flex gap-2">
-            <button type="button" onClick={other} aria-label="Show the other pillar" className="flex h-10 w-10 items-center justify-center rounded-full border border-sc-line bg-white text-sc-marine hover:bg-sc-mist"><ChevronLeft aria-hidden className="h-5 w-5" /></button>
-            <button type="button" onClick={other} aria-label="Show the other pillar" className="flex h-10 w-10 items-center justify-center rounded-full border border-sc-gold text-sc-marine hover:bg-sc-goldtint"><ChevronRight aria-hidden className="h-5 w-5" /></button>
-          </div>
-        </div>
+      <div className="mb-10 text-center mx-auto max-w-4xl px-4">
+        <h2 className="font-display text-2xl font-bold text-sc-marine sm:text-3xl lg:text-[2.2rem] sm:whitespace-nowrap">
+          One Partner. Two services. Complete care
+        </h2>
       </div>
       <div className="grid gap-6 lg:grid-cols-2">
         {(Object.keys(DATA) as P[]).map((k) => {

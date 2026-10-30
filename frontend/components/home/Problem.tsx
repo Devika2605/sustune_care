@@ -4,10 +4,10 @@ import { Section, Eyebrow } from '@/components/ui/Section'
 import { Button } from '@/components/ui/Button'
 
 const CARDS = [
-  [Clock, 'Time zone challenges', 'Hard to oversee property or parents from abroad'],
-  [MapPinOff, 'Unreliable local support', 'Inconsistent care and maintenance quality'],
-  [EyeOff, 'Lack of transparency', 'No real-time updates or verification'],
-  [Heart, 'Emotional stress', 'Constant worry about their well-being'],
+  [Clock, 'Time zone challenges', "Difficult to coordinate property care and your parents' needs from abroad."],
+  [MapPinOff, 'Unreliable local support', 'Inconsistent property maintenance and support for your parents.'],
+  [EyeOff, 'Lack of transparency', 'Few timely updates or confirmation that tasks and visits are completed.'],
+  [Heart, 'Emotional stress', 'Constant worry about your property and parents back home.'],
 ] as const
 
 // Where the NRI hubs sit on the globe artwork (percent of the 1983x793 picture). Decorative only.
