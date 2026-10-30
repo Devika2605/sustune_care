@@ -1,5 +1,4 @@
 import { Hero } from '@/components/home/Hero'
-import { StatsBar } from '@/components/home/StatsBar'
 import { Problem } from '@/components/home/Problem'
 import { Pillars } from '@/components/home/Pillars'
 import { Calculator } from '@/components/home/Calculator'
@@ -10,7 +9,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <StatsBar />
       <Problem />
       <Pillars />
       <Calculator />

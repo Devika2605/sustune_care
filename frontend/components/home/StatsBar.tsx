@@ -1,14 +1,14 @@
 import { Home, Users, Star, MapPin } from 'lucide-react'
 import { SHOW_SAMPLE_PROOF } from '@/lib/config'
 import { STATS_REAL, STATS_SAMPLE } from '@/lib/content'
+import { cn } from '@/lib/cn'
 
 const ICONS = [Home, Users, Star, MapPin]
 
-// Floats over the bottom edge of the hero (the hero leaves 3.5rem of padding for it, the bar rides 5rem up).
-export function StatsBar() {
+export function StatsBar({ className }: { className?: string }) {
   const stats = SHOW_SAMPLE_PROOF ? STATS_SAMPLE : STATS_REAL
   return (
-    <div className="relative z-20 mx-auto -mt-20 max-w-page px-5 sm:px-8">
+    <div className={cn("relative z-20 mx-auto max-w-page px-5 sm:px-8", className)}>
       <dl className="grid grid-cols-2 rounded-2xl border border-sc-gold/40 bg-sc-marine/95 text-white shadow-lift backdrop-blur-md lg:grid-cols-4 [&>div]:border-white/10 [&>div:nth-child(-n+2)]:border-b lg:[&>div:nth-child(-n+2)]:border-b-0 lg:[&>div+div]:border-l [&>div:nth-child(odd)]:border-r lg:[&>div:nth-child(odd)]:border-r-0">
         {stats.map(([n, l], i) => {
           const Icon = ICONS[i]
