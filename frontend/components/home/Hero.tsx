@@ -20,46 +20,83 @@ const BACKDROP = [
   'linear-gradient(180deg, #050D20 0%, #0A1A3C 55%, #08163A 100%)',
 ].join(',')
 
-// Fade the left edge more aggressively (wider fade keeps artwork away from nav/copy) and fade the bottom edge.
-const FADE = 'linear-gradient(to right, transparent 0%, #000 22%), linear-gradient(to bottom, #000 88%, transparent 100%)'
+// Soft bottom pedestal fade
+const FADE = 'linear-gradient(to bottom, #000 92%, transparent 100%)'
 
 export function Hero() {
   const [video, setVideo] = useState(false)
   return (
-    <section className="relative flex min-h-screen flex-col justify-between overflow-hidden text-white pb-16 lg:pb-20 border-0 m-0" style={{ background: BACKDROP }}>
-      {/* Keeps the headline readable where it crosses the arch. Sits above the artwork, below the copy, and runs the full height so it leaves no edge. */}
-      <div aria-hidden className="pointer-events-none absolute inset-y-0 left-0 z-[5] hidden w-[62%] bg-gradient-to-r from-sc-deep/75 via-sc-deep/40 to-transparent lg:block" />
-      <div className="relative mx-auto flex w-full max-w-[1800px] flex-1 flex-col lg:block">
-        {/* Copy: Explicit top padding pt-36 md:pt-44 keeps text well below the absolute Navbar */}
-        <div className="relative z-10 order-1">
-          <div className="relative mx-auto w-full max-w-page px-5 pt-36 sm:px-8 md:pt-44">
-            <div className="max-w-2xl">
-              <h1 className="font-serif font-display text-3xl font-semibold leading-[1.3] text-white md:text-4xl lg:text-[40px]">
-                Sustune Care bridges the anxiety of distance for Global Indians with trusted property stewardship and compassionate elderly care in India.
-              </h1>
-              <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
-                <Button href="#pillars" arrow className="px-6 py-3.5 text-base">Explore Our Services</Button>
-                <button type="button" onClick={() => setVideo(true)} className="group flex items-center gap-3 text-left">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full border border-sc-gold/70 bg-sc-deep/40 text-white transition-colors group-hover:bg-sc-gold group-hover:text-sc-marine"><Play aria-hidden className="h-5 w-5 fill-current" /></span>
-                  <span><span className="block text-sm font-semibold">Watch Our Story</span><span className="block text-xs text-slate-300">2 min</span></span>
-                </button>
-              </div>
+    <section className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden text-white border-0 m-0 box-border" style={{ background: BACKDROP }}>
+      {/* Subtle glow overlay on left to maintain text contrast */}
+      <div aria-hidden className="pointer-events-none absolute inset-y-0 left-0 z-[5] hidden w-[55%] bg-gradient-to-r from-sc-deep/80 via-sc-deep/30 to-transparent lg:block" />
+      
+      {/* Content Area: flex: 1, 58% / 42% grid on desktop, vertically centered in space between navbar and stats bar */}
+      <div className="relative mx-auto grid w-full max-w-page flex-1 items-center gap-6 xl:gap-10 grid-cols-1 lg:grid-cols-[58%_42%] px-5 sm:px-8 pt-[88px] lg:pt-[92px] min-w-0">
+        
+        {/* Left Column (58%): Headline, Paragraph, Buttons */}
+        <div className="relative z-10 py-2 sm:py-4 min-w-0">
+          <div className="max-w-[620px] min-w-0">
+            {/* 1. HEADLINE: clamp(2rem, min(3.4vw, 6vh), 3.5rem), nowrap on desktop, line-height 1.15, margin 0 */}
+            <h1
+              className="font-display font-serif font-bold text-white tracking-tight m-0 p-0 text-[clamp(1.75rem,5.5vw,2.6rem)] lg:text-[clamp(2rem,min(3.4vw,6vh),3.5rem)]"
+              style={{ lineHeight: 1.15 }}
+            >
+              <span className="block m-0 p-0 whitespace-normal lg:whitespace-nowrap">Care for your property.</span>
+              <span className="block m-0 p-0 whitespace-normal lg:whitespace-nowrap">Care for your parents.</span>
+              <span className="block m-0 p-0 text-sc-gold whitespace-normal lg:whitespace-nowrap">Peace of mind for you.</span>
+            </h1>
+
+            {/* 2. PARAGRAPH: clamp(1rem, 1.15vw, 1.15rem), line-height 1.6, max-width 620px, mt: 24px, mb: 28px */}
+            <p
+              className="mt-[24px] mb-[28px] max-w-[620px] font-normal text-[clamp(1rem,1.15vw,1.15rem)]"
+              style={{
+                lineHeight: 1.6,
+                color: 'rgba(255, 255, 255, 0.82)',
+              }}
+            >
+              Sustune Care bridges the anxiety of distance for Global Indians with trusted property stewardship and compassionate elderly care in India.
+            </p>
+
+            {/* 3. BUTTONS: height about 56px, 20-24px gap, vertically aligned */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-[16px] sm:gap-[24px]">
+              <Button
+                href="#pillars"
+                arrow
+                className="h-[56px] min-h-[56px] px-7 text-[15px] sm:text-[16px] font-semibold rounded-lg shadow-md flex items-center justify-center"
+              >
+                Explore Our Services
+              </Button>
+              <button
+                type="button"
+                onClick={() => setVideo(true)}
+                className="group flex h-[56px] min-h-[56px] items-center gap-3.5 text-left px-2"
+              >
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-sc-gold/70 bg-sc-deep/60 text-white transition-colors group-hover:bg-sc-gold group-hover:text-sc-marine shadow-md">
+                  <Play aria-hidden className="h-4 w-4 fill-current ml-0.5" />
+                </span>
+                <span>
+                  <span className="block text-[15px] sm:text-[16px] font-semibold text-white leading-tight">Watch Our Story</span>
+                  <span className="block text-[13px] sm:text-[14px] text-slate-300 leading-tight mt-0.5">2 min</span>
+                </span>
+              </button>
             </div>
           </div>
         </div>
 
-        {/* Artwork: image wrapper with mt-12 lg:mt-20, staying below navbar and Talk to Us button */}
-        <div className="relative order-2 mx-auto mt-12 w-full max-w-[520px] overflow-hidden md:max-w-[640px] lg:absolute lg:right-0 lg:top-0 lg:mt-20 lg:w-[48%] lg:max-w-[700px] xl:w-[46%] xl:max-w-[740px] lg:overflow-visible">
-          <Image
-            src={HERO_SRC} alt="Sustune Care emblem" width={1672} height={941} priority sizes="(max-width: 1024px) 100vw, 48vw"
-            className="h-auto w-full object-contain"
-            style={{ WebkitMaskImage: FADE, maskImage: FADE, WebkitMaskComposite: 'source-in', maskComposite: 'intersect' }}
-          />
+        {/* Right Column (42%): Emblem, vertically centered with text block, 100% of column, fully visible */}
+        <div className="relative order-2 lg:order-none flex items-center justify-center lg:justify-end w-full py-2 sm:py-4">
+          <div className="relative w-full max-w-full flex items-center justify-center">
+            <Image
+              src={HERO_SRC} alt="Sustune Care emblem" width={1672} height={941} priority sizes="(max-width: 1024px) 100vw, 42vw"
+              className="h-auto w-full max-w-full object-contain drop-shadow-2xl"
+              style={{ WebkitMaskImage: FADE, maskImage: FADE }}
+            />
+          </div>
         </div>
       </div>
 
-      {/* Stats bar cleanly positioned inside the dark navy hero section */}
-      <div className="relative z-20 mt-auto pt-10 sm:pt-14 lg:pt-16">
+      {/* Stats bar sitting at the bottom inside hero with 32px space under it */}
+      <div className="relative z-20 mt-auto mb-[32px]">
         <StatsBar />
       </div>
 

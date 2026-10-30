@@ -27,7 +27,7 @@ export function Footer() {
         </div>
         {col('Aegis property', [['Tenant scouting', '/aegis#modules'], ['Rental management', '/aegis#modules'], ['Maintenance and interiors', '/aegis#modules'], ['Pricing', '/aegis#pricing'], ['Sample inspection report', '/aegis#report']])}
         {col('Sparsh care', [['24/7 emergency SOS', '/sparsh#pillars'], ['Doctor escort', '/sparsh#pillars'], ['Daily errands', '/sparsh#pillars'], ['Companionship', '/sparsh#pillars'], ['Care plan builder', '/sparsh#plan']])}
-        {col('Company', [['About', '/about'], ['Peace-of-mind calculator', '/#calculator'], ['Portal demo', '/portal-preview'], ['Client login', '/login'], ['Contact', '/contact'], ['Privacy policy', '/privacy'], ['Terms', '/terms']])}
+        {col('Company', [['About', '/about'], ['Portal demo', '/portal-preview'], ['Client login', '/login'], ['Contact', '/contact'], ['Privacy policy', '/privacy'], ['Terms', '/terms']])}
       </div>
       <div className="border-t border-white/10">
         <p className="mx-auto max-w-page px-5 py-5 text-xs sm:px-8">© {new Date().getFullYear()} {SITE.legalName}. All rights reserved. {SITE.tagline}</p>

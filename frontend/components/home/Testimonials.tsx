@@ -14,7 +14,7 @@ export function Testimonials() {
   return (
     <>
       {SHOW_SAMPLE_PROOF && (
-        <Section tone="white" className="pt-2">
+        <Section tone="white" className="pt-6 sm:pt-8">
           <div className="grid gap-8 lg:grid-cols-[0.7fr_2fr]">
             <div>
               <h2 className="font-display text-3xl font-bold text-sc-marine">Trusted by Global Indians</h2>

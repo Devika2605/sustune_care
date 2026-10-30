@@ -18,7 +18,7 @@ export function Pillars() {
   const [focus, setFocus] = useState<P>('aegis')
   const d = DATA[focus]
   return (
-    <Section id="pillars" tone="white" className="pb-10 pt-4">
+    <Section id="pillars" tone="white" className="pb-12 sm:pb-16 pt-4">
       <div className="mb-10 text-center mx-auto max-w-4xl px-4">
         <h2 className="font-display text-2xl font-bold text-sc-marine sm:text-3xl lg:text-[2.2rem] sm:whitespace-nowrap">
           One Partner. Two services. Complete care
