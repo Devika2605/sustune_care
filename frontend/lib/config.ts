@@ -3,7 +3,7 @@ export const SITE = {
   name: 'Sustune Care',
   legalName: 'Sustune Care', // TODO: replace with the registered entity name once confirmed
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.sustunecare.com',
-  tagline: 'Protected Care. Sustained Dignity.',
+  tagline: 'Care for your property, care for your parents, care for your peace of mind.',
   phoneDisplay: '+91 89856 34239',
   phoneTel: '+918985634239',
   whatsappDisplay: '+1 206 713 6114',
